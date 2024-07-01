@@ -12,9 +12,12 @@ import {
   CircleUser,
   Home,
   Menu,
-  Package2
+  Package2,
+  TrendingUp,
+  List,
+  Settings
 } from "lucide-react"
-import { Outlet } from "react-router-dom"
+import { Outlet, Link } from "react-router-dom"
 
 function SharedLayout() {
   return (
@@ -22,20 +25,41 @@ function SharedLayout() {
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <a href="/" className="flex items-center gap-2 font-semibold">
-              <Package2 className="h-6 w-6" />
-              <span className="">Acme Inc</span>
-            </a>
+            <Link to="/" className="flex items-center gap-2 font-semibold">
+              <TrendingUp className="h-6 w-6" />
+              <span className="">Crypto Monitor</span>
+            </Link>
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <a
-                href="#"
+              <Link
+                to="/dashboard"
                 className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
               >
                 <Home className="h-4 w-4" />
-                Home
-              </a>
+                Dashboard
+              </Link>
+              <Link
+                to="/assets"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <Package2 className="h-4 w-4" />
+                Assets
+              </Link>
+              <Link
+                to="/transactions"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <List className="h-4 w-4" />
+                Transactions
+              </Link>
+              <Link
+                to="/settings"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+              >
+                <Settings className="h-4 w-4" />
+                Settings
+              </Link>
             </nav>
           </div>
         </div>
@@ -55,20 +79,41 @@ function SharedLayout() {
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
               <nav className="grid gap-2 text-lg font-medium">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <Package2 className="h-6 w-6" />
-                  <span className="sr-only">Acme Inc</span>
-                </a>
-                <a
-                  href="#"
+                  <TrendingUp className="h-6 w-6" />
+                  <span className="sr-only">Crypto Monitor</span>
+                </Link>
+                <Link
+                  to="/dashboard"
                   className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
                 >
                   <Home className="h-5 w-5" />
-                  Home
-                </a>
+                  Dashboard
+                </Link>
+                <Link
+                  to="/assets"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <Package2 className="h-5 w-5" />
+                  Assets
+                </Link>
+                <Link
+                  to="/transactions"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <List className="h-5 w-5" />
+                  Transactions
+                </Link>
+                <Link
+                  to="/settings"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                >
+                  <Settings className="h-5 w-5" />
+                  Settings
+                </Link>
               </nav>
             </SheetContent>
           </Sheet>
