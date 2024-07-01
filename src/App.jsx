@@ -5,6 +5,8 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Assets from "./pages/Assets.jsx";
 import Transactions from "./pages/Transactions.jsx";
 import Settings from "./pages/Settings.jsx";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "sonner";
 import SharedLayout from "./components/layouts/sidebar.jsx";
 
 const queryClient = new QueryClient();
