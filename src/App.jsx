@@ -1,11 +1,13 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Index from "./pages/Index.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Assets from "./pages/Assets.jsx";
+import Transactions from "./pages/Transactions.jsx";
+import Settings from "./pages/Settings.jsx";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/sonner.jsx";
-
-// Make sure select one of the following layouts: default.jsx, navbar.jsx, sidebar.jsx depending on your project
-import SharedLayout from "./components/layouts/default.jsx";
+import { Toaster } from "sonner";
+import SharedLayout from "./components/layouts/sidebar.jsx";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +20,10 @@ function App() {
             <Routes>
               <Route path="/" element={<SharedLayout />}>
                 <Route index element={<Index />} />
-                {/* Add more routes here as needed */}
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="assets" element={<Assets />} />
+                <Route path="transactions" element={<Transactions />} />
+                <Route path="settings" element={<Settings />} />
               </Route>
             </Routes>
           </Router>
